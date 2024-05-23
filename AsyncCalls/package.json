@@ -1,0 +1,11 @@
+{
+  "name": "asynccalls",
+  "version": "1.0.0",
+  "description": "Handling asynchronous calls",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kartheek Midde",
+  "license": "ISC"
+}
