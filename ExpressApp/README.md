@@ -1,1 +1,2 @@
 - Set an environment variable `export PORT=5001`
+- When using config package for different envionments, the secrets can be set using `export app_password=1234`. They can then be mapped to the config/`custom-environment-variables.json` file. The name of the file should be exact
