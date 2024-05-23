@@ -1,9 +1,17 @@
 const express = require('express')
 const app = express()
 const Joi = require('joi')
+const logger = require('./logger')
+const helmet = require('helmet')
+const morgan = require('morgan');
 
 // To parse json objects add this middleware
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+app.use(express.static('public'))
+app.use(logger)
+app.use(helmet())
+app.use(morgan('tiny'))
 
 const courses = [
     { id: 1, name: 'course1' },
@@ -84,4 +92,4 @@ function validateCourse(course) {
 }
 
 const port = process.env.PORT || 3000
-app.listen(port, () => console.log(`Listening on port ${port}...`))
+app.listen(port, () => console.log(`Listening on port ${port}.............`))
