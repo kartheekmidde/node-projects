@@ -67,7 +67,7 @@ app.delete('/api/courses/:id', (req, res) => {
 // Find and throw error if not found
     const course = courses.find(c => c.id === parseInt(req.params.id))
     if (!course)
-        return es.status(404).send("The course with given id is not found")
+        return res.status(404).send("The course with given id is not found")
 
     const index = courses.indexOf(course)
     courses.splice(index, 1);
