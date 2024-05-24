@@ -7,6 +7,7 @@ const morgan = require('morgan');
 const config = require('config')
 const startupDebugger = require('debug')('app:startup')
 const dbDebugger = require('debug')('app:db')
+const mysql = require('mysql')
 
 // To parse json objects add this middleware
 app.use(express.json())
@@ -109,4 +110,27 @@ function validateCourse(course) {
 }
 
 const port = process.env.PORT || 3000
-app.listen(port, () => console.log(`Listening on port ${port}.............`))
+app.listen(port, () => {
+    const connection = mysql.createConnection({
+        host: config.get('db.host'),
+        user: config.get('db.username'),
+        password: config.get('db.password'),
+        port: config.get('db.port')
+    })
+
+    connection.connect((err) => {
+        if (err) {
+            console.log('Unable to connect to database ' + err)
+        }
+        console.log('Connected as id ' + connection.threadId);
+    })
+
+    connection.query('SELECT 1 + 1 AS solution', (err, rows, fields) => {
+        if (err) 
+            throw err
+        console.log('The solution is: ', rows[0].solution)
+    })
+      
+    connection.end()
+    console.log(`Listening on port ${port}.............`)
+})

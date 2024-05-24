@@ -1,5 +1,12 @@
 {
     "mail": {
         "password": "app_password"
+    },
+    "db": {
+        "host": "db_host",
+        "username": "db_username",
+        "database": "db_database",
+        "password": "db_password",
+        "port": "db_port"
     }
 }
