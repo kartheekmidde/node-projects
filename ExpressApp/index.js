@@ -5,6 +5,8 @@ const logger = require('./logger')
 const helmet = require('helmet')
 const morgan = require('morgan');
 const config = require('config')
+const startupDebugger = require('debug')('app:startup')
+const dbDebugger = require('debug')('app:db')
 
 // To parse json objects add this middleware
 app.use(express.json())
@@ -22,8 +24,11 @@ console.log('Mail server ' + config.get('mail.password'))
 // console.log(`app: ${app.get('env')}`) // returns development by default if NODE_ENV is not set
 if (app.get('env') === 'development') {
     app.use(morgan('tiny'))
-    console.log('Morgan enabled')
+    startupDebugger('Morgan enabled')
 }
+
+// DB related debugging
+dbDebugger('Connected to DB..')
 
 const courses = [
     { id: 1, name: 'course1' },
