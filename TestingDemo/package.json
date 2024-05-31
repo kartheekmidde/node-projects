@@ -1,0 +1,14 @@
+{
+  "name": "testingdemo",
+  "version": "1.0.0",
+  "description": "Automation testing for Node projects using Jest",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watchAll"
+  },
+  "author": "Kartheek Midde",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
