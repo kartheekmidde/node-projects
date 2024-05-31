@@ -3,20 +3,19 @@
 - To run any js file, `node fileName.js`
 
 ## Export/Import modules
-- To export as object
-    - `module.exports.customName = attributeOrFunctionName`
-- To export as function/attribute of a file
-    - `module.exports = attributeOrFunctionName`
-- To import a file and then function exported by another module
+- To export/import as object
+    - `module.exports.funcNameA = funcA`
+    - `const logger = require('./fileName')`
+    - `logger.funcNameA()`
+- To export/import a single function in the file
+    - `module.exports = funcA`
+    - `const funcNameA = require('./fileName')`
+    - `funcNameA()`
+- To import a file from different paths
     - `const fileName = require('./filename')` for same folder
     - `const fileName = require('./folderName/filename')` for sub folder
     - `const fileName = require('../filename')` for parent folder
-- To import a file directly
-    - `const attributeOrFunctionName = require('./filename')`
-- To execute the imported function 
-    - `fileName.customName()`
-    - `attributeOrFunctionName()`
-- To import built in modules
+- To import built in modules (from ~node_modules)
     - `const module = require('moduleName')`
 
 ## Module Wrapper Function
