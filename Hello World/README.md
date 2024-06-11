@@ -3,8 +3,21 @@
 - To run any js file, `node fileName.js`
 
 ## Export/Import modules
-- To export/import as object
+
+### ES6 (import/export)
+- Export to make parts of a module to other modules
+    - `export const myFunction = { ... }`
+- Import to bring in modules
+    - `import { myFunction } from './fileName.js'`
+- Pros
+    - Statically analyzed
+    - Support asynchronous loading, which improves performance in web environments
+    - Variables have their own scope
+      
+### CommonJS (require)
+- Export using module.export
     - `module.exports.funcNameA = funcA`
+- Import using require
     - `const logger = require('./fileName')`
     - `logger.funcNameA()`
 - To export/import a single function in the file
